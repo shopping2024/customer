@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: CUSTOMER-SERVICE
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: customer
+      username: admin
+      password: password
+      authentication-database: admin
+server:
+  port: 8060
+
+
+
+spring.security:
+   oauth2:
+     resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8081/realms/Ecommerce
+          jwk-set-uri: http://localhost:8081/realms/Ecommerce/protocol/openid-connect/certs
+
+
+
+jwt:
+          auth:
+            converter:
+              resource-id: microservices-rest-api
+              principle-attribute: preferred_username
